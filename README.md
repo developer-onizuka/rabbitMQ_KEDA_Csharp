@@ -14,32 +14,35 @@ func new
 dotnet add package Microsoft.Azure.WebJobs.Extensions.RabbitMQ
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
 
-cat myfuncapp.cs
-using System;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Extensions.Logging;
-using Microsoft.Azure.WebJobs.Host.Bindings;
-using Newtonsoft.Json;
-using RabbitMQ.Client.Events;
+func init --docker
+func new
+dotnet add package Microsoft.Azure.WebJobs.Extensions.RabbitMQ
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
 
-cat local.settings.json 
+
+# cat local.settings.json 
 {
     "IsEncrypted": false,
     "Values": {
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-	"queueconnection" : "amqp://user:PASSWORD@rabbitmq.default.svc.cluster.local:5672"
+	"RabbitMQ": "amqp://user:PASSWORD@rabbitmq.default.svc.cluster.local:5672"
     }
 }
+
+# cat myfunc.cs 
+using System;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 
 namespace myfunction
 {
-    public class myfuncapp
+    public class myfunc
     {
-        [FunctionName("myfuncapp")]
-        public void Run([QueueTrigger("hello", Connection = "queueconnection")]string myQueueItem, ILogger log)
+        [FunctionName("myfunc")]
+        public void Run([QueueTrigger("hello", Connection = "RabbitMQ")]string myQueueItem, ILogger log)
         {
             log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
         }
@@ -47,7 +50,8 @@ namespace myfunction
 }
 
 
+docker build -t myfunc:v1 .
+func kubernetes deploy --name myfunc --registry 192.168.1.5:5000
 
-func start
 
 ```
