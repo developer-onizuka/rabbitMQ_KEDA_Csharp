@@ -102,3 +102,22 @@ secret/rabbitmq-consumer created
 deployment.apps/rabbitmq-consumer created
 scaledobject.keda.sh/rabbitmq-consumer created
 ```
+
+# 3. Check ScaledObjects
+```
+$ kubectl get scaledobjects
+NAME                SCALETARGETKIND      SCALETARGETNAME     MIN   MAX   TRIGGERS   AUTHENTICATION   READY   ACTIVE   FALLBACK   AGE
+rabbitmq-consumer   apps/v1.Deployment   rabbitmq-consumer               rabbitmq                    True    False    Unknown    55s
+```
+
+# 4. Check the consumer
+```
+$ kubectl get deploy
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+rabbitmq-consumer   0/0     0            0           44s
+```
+
+# 5. Publish messages
+https://github.com/developer-onizuka/rabbitMQ_KEDA#3-publish-messages-to-the-queue
+
+
