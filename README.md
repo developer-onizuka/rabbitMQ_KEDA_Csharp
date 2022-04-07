@@ -1,4 +1,6 @@
 # rabbitMQ_KEDA_Csharp
+Azure Functions is a service on Azure that consists of a runtime part that executes functions and a part that controls scaling, of which the latter scaling control can be replaced with Kubernetes and KEDA. <br>
+Azure Functions can run on Kubernetes with KEDA, so you can use Azure Functions outside of your Azure platform, such as your on-premises environment.
 
 # 0. Prerequisites
 # 0-1. Install KEDA with helm
@@ -9,6 +11,9 @@
 > https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA#1-run-the-registry-somewhere <br>
 > https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA#2-install-azure-functions-core-tools-in-kubernetes-master-node
 
+# 0-3. Create the private registry
+> https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA#1-run-the-registry-somewhere
+
 # 1. Install dotnet-sdk-6.0
 ```
 wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -17,7 +22,7 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https dotnet-sdk-6.0
 ```
 
-# 2. Create the Class library
+# 2. Create a sample code of Class library
 
 ```
 $ mkdir rabbitmq-consumer
