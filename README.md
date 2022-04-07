@@ -120,8 +120,13 @@ NAME                SCALETARGETKIND      SCALETARGETNAME     MIN   MAX   TRIGGER
 rabbitmq-consumer   apps/v1.Deployment   rabbitmq-consumer               rabbitmq                    True    False    Unknown    55s
 ```
 
-# 5. Check the consumer
+# 5. Check the consumer's scalability
+You should see rabbitmq-consumer deployment with 0 pods as there currently aren't any queue messages. It is scale to zero
 ```
+# kubectl get hpa
+NAME                         REFERENCE                      TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+keda-hpa-rabbitmq-consumer   Deployment/rabbitmq-consumer   <unknown>/20 (avg)   1         16        0          15m
+
 $ kubectl get deploy
 NAME                READY   UP-TO-DATE   AVAILABLE   AGE
 rabbitmq-consumer   0/0     0            0           44s
