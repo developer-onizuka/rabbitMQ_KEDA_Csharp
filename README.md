@@ -96,8 +96,8 @@ namespace rabbitmq_consumer
 }
 ```
 ```
-$ func kubernetes deploy --name rabbitmq-consumer --registry 192.168.1.5:5000
-Running 'docker build -t 192.168.1.5:5000/rabbitmq-consumer:latest /home/vagrant/rabbitmq-consumer'...................done
+$ func kubernetes deploy --name rabbitmq-consumer --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
+Running 'docker build -t 192.168.1.5:5000/rabbitmq-consumer:latest /home/vagrant/rabbitmq-consumer'..done
 secret/rabbitmq-consumer created
 deployment.apps/rabbitmq-consumer created
 scaledobject.keda.sh/rabbitmq-consumer created
@@ -131,6 +131,41 @@ $ kubectl exec -it rabbitmq-0 -- rabbitmqctl list_queues
 Timeout: 60.0 seconds ...
 Listing queues for vhost / ...
 name	messages
-hello	300
+hello	30000
 ```
 
+# 6. Automatic Scale Out of KEDA
+```
+kubectl get deploy -w
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+rabbitmq-consumer   0/0     0            0           3s
+rabbitmq-consumer   0/1     0            0           31s
+rabbitmq-consumer   0/1     0            0           31s
+rabbitmq-consumer   0/1     0            0           31s
+rabbitmq-consumer   0/1     1            0           31s
+rabbitmq-consumer   1/1     1            1           41s
+rabbitmq-consumer   1/4     1            1           46s
+rabbitmq-consumer   1/4     1            1           46s
+rabbitmq-consumer   1/4     1            1           46s
+rabbitmq-consumer   1/4     4            1           46s
+rabbitmq-consumer   2/4     4            2           56s
+rabbitmq-consumer   3/4     4            3           57s
+rabbitmq-consumer   4/4     4            4           58s
+rabbitmq-consumer   4/8     4            4           61s
+rabbitmq-consumer   4/8     4            4           61s
+rabbitmq-consumer   4/8     4            4           61s
+rabbitmq-consumer   4/8     7            4           61s
+rabbitmq-consumer   4/8     8            4           61s
+rabbitmq-consumer   5/8     8            5           71s
+rabbitmq-consumer   6/8     8            6           72s
+rabbitmq-consumer   7/8     8            7           72s
+rabbitmq-consumer   8/8     8            8           72s
+rabbitmq-consumer   8/16    8            8           76s
+rabbitmq-consumer   8/16    8            8           76s
+rabbitmq-consumer   8/16    8            8           76s
+rabbitmq-consumer   8/16    16           8           76s
+rabbitmq-consumer   8/0     16           8           86s
+rabbitmq-consumer   8/0     16           8           86s
+rabbitmq-consumer   8/0     16           8           86s
+rabbitmq-consumer   0/0     0            0           86s
+```
