@@ -169,3 +169,5 @@ rabbitmq-consumer   8/0     16           8           86s
 rabbitmq-consumer   8/0     16           8           86s
 rabbitmq-consumer   0/0     0            0           86s
 ```
+
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ1.png" width="640">
