@@ -9,11 +9,6 @@ sudo apt-get install -y apt-transport-https dotnet-sdk-6.0
 mkdir myfunction
 cd myfunction
 
-func init
-func new
-dotnet add package Microsoft.Azure.WebJobs.Extensions.RabbitMQ
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
-
 func init --docker
 func new
 dotnet add package Microsoft.Azure.WebJobs.Extensions.RabbitMQ
