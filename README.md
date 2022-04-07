@@ -121,7 +121,7 @@ rabbitmq-consumer   apps/v1.Deployment   rabbitmq-consumer               rabbitm
 ```
 
 # 5. Check the consumer's scalability
-You should see rabbitmq-consumer deployment with 0 pods as there currently aren't any queue messages. It is scale to zero
+You should see rabbitmq-consumer deployment with 0 pods as there currently aren't any queue messages.
 ```
 # kubectl get hpa
 NAME                         REFERENCE                      TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
