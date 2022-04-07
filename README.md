@@ -17,7 +17,7 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https dotnet-sdk-6.0
 ```
 
-# 2. Deploy a RabbitMQ consumer with Azure Functions
+# 2. Create the Class library
 
 ```
 $ mkdir rabbitmq-consumer
@@ -98,6 +98,8 @@ namespace rabbitmq_consumer
     }
 }
 ```
+
+# 3. Deploy a RabbitMQ consumer with Azure Functions
 ```
 $ func kubernetes deploy --name rabbitmq-consumer --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
 Running 'docker build -t 192.168.1.5:5000/rabbitmq-consumer:latest /home/vagrant/rabbitmq-consumer'..done
@@ -106,21 +108,21 @@ deployment.apps/rabbitmq-consumer created
 scaledobject.keda.sh/rabbitmq-consumer created
 ```
 
-# 3. Check ScaledObjects
+# 4. Check ScaledObjects
 ```
 $ kubectl get scaledobjects
 NAME                SCALETARGETKIND      SCALETARGETNAME     MIN   MAX   TRIGGERS   AUTHENTICATION   READY   ACTIVE   FALLBACK   AGE
 rabbitmq-consumer   apps/v1.Deployment   rabbitmq-consumer               rabbitmq                    True    False    Unknown    55s
 ```
 
-# 4. Check the consumer
+# 5. Check the consumer
 ```
 $ kubectl get deploy
 NAME                READY   UP-TO-DATE   AVAILABLE   AGE
 rabbitmq-consumer   0/0     0            0           44s
 ```
 
-# 5. Publish messages
+# 6. Publish messages
 https://github.com/developer-onizuka/rabbitMQ_KEDA#3-publish-messages-to-the-queue
 ```
 $ git clone https://github.com/kedacore/sample-go-rabbitmq
@@ -137,7 +139,7 @@ name	messages
 hello	30000
 ```
 
-# 6. Automatic Scale Out of KEDA
+# 7. Automatic Scale Out of KEDA
 ```
 kubectl get deploy -w
 NAME                READY   UP-TO-DATE   AVAILABLE   AGE
