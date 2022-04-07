@@ -119,5 +119,18 @@ rabbitmq-consumer   0/0     0            0           44s
 
 # 5. Publish messages
 https://github.com/developer-onizuka/rabbitMQ_KEDA#3-publish-messages-to-the-queue
+```
+$ git clone https://github.com/kedacore/sample-go-rabbitmq
 
+$ cd sample-go-rabbitmq
+
+$ kubectl apply -f deploy/deploy-publisher-job.yaml
+job.batch/rabbitmq-publish created
+
+$ kubectl exec -it rabbitmq-0 -- rabbitmqctl list_queues
+Timeout: 60.0 seconds ...
+Listing queues for vhost / ...
+name	messages
+hello	300
+```
 
