@@ -22,7 +22,7 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https dotnet-sdk-6.0
 ```
 
-# 2. Create a sample code of Class library
+# 2. Create a sample of Class library and edit it
 
 ```
 $ mkdir rabbitmq-consumer
