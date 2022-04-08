@@ -189,6 +189,7 @@ rabbitmq-consumer   0/0     0            0           86s
 
 
 # 8. Write RabbitMQ's messages to MongoDB
+# 8-1. Deploy the Function of rabbitmq-to-mongodb to AzureFunctions on Onprem-Kubernetes
 ```
 $ git clone https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp
 
@@ -206,10 +207,33 @@ $ kubectl get deploy
 NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
 mongo-test            1/1     1            1           42m
 rabbitmq-to-mongodb   0/0     0            0           7m5s
-
-
-
 ```
 
+# 8-2. Publish 2 Messages as test
+You might use the Json below:
+```
+{"EmployeeID":1,"FirstName":"Yukichi","LastName":"Fukuzawa"}
+{"EmployeeID":2,"FirstName":"Shoin","LastName":"Yoshida"}
+```
 
+# 8-3. Check if the documents are written correctly
+```
+$ kubectl exec -it mongo-test-dd8d57b87-4ffj7 -- /bin/bash
+root@mongo-test-dd8d57b87-4ffj7:/# mongo
 
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+mydb    0.000GB
+
+> use mydb
+switched to db mydb
+
+> show collections
+Employee
+
+> db.Employee.find()
+{ "_id" : ObjectId("62500698ec309b7f992ec51b"), "EmployeeID" : 1, "FirstName" : "Yukichi", "LastName" : "Fukuzawa" }
+{ "_id" : ObjectId("6250096dcc145fdac5410531"), "EmployeeID" : 2, "FirstName" : "Shoin", "LastName" : "Yoshida" }
+```
