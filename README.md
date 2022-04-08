@@ -189,6 +189,9 @@ rabbitmq-consumer   0/0     0            0           86s
 
 
 # 8. Write RabbitMQ's messages to MongoDB
+I already uploaded on this repo. But, it is almost same as each step above. <br>
+If you are not familier with MongoDB, the see https://github.com/developer-onizuka/mvc_containers2.
+
 # 8-1. Deploy the Function of rabbitmq-to-mongodb to AzureFunctions on Onprem-Kubernetes
 ```
 $ git clone https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp
