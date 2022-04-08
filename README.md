@@ -9,13 +9,13 @@ Azure Functions can run on Kubernetes with KEDA, so you can use Azure Functions 
 
 # 0-2. Install Azure-functions-core-tools
 > https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA#1-run-the-registry-somewhere <br>
-> https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA#2-install-azure-functions-core-tools-in-kubernetes-master-node
+> https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA#2-install-azure-functions-core-tools-in-kubernetes-master-node <br>
 
 # 0-3. Create the private registry
-> https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA#1-run-the-registry-somewhere
+> https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA#1-run-the-registry-somewhere <br>
 
 # 0-4. Create StorageClass for MongoDB's pvc
-> https://github.com/developer-onizuka/persistentVolume-CSI
+> https://github.com/developer-onizuka/persistentVolume-CSI <br>
 
 # 1. Install dotnet-sdk-6.0
 ```
@@ -192,8 +192,9 @@ rabbitmq-consumer   0/0     0            0           86s
 
 
 # 8. Write RabbitMQ's messages to MongoDB
-I already uploaded it on this repo. But, it is almost same as each step above. <br>
-If you are not familier with MongoDB, the see https://github.com/developer-onizuka/mvc_containers2.
+I already uploaded C# code on this repo. But, it is almost same as each step above. <br>
+If you are not familier with MongoDB, the see also https://github.com/developer-onizuka/mvc_containers2. <br>
+C# is a very convenient object language to use MongoDB.
 
 # 8-1. Deploy the Function of rabbitmq-to-mongodb to AzureFunctions on Onprem-Kubernetes
 ```
