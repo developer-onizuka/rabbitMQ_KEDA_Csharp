@@ -201,6 +201,17 @@ $ git clone https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp
 
 $ cd rabbitMQ_KEDA_Csharp/rabbitmq-to-mongodb
 
+$ cat <<EOF > local.settings.json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+	"RabbitMQConnection": "amqp://user:PASSWORD@rabbitmq.default.svc.cluster.local:5672"
+    }
+}
+EOF
+
 $ kubectl apply -f mongodb.yaml
 
 $ func kubernetes deploy --name rabbitmq-to-mongodb --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
