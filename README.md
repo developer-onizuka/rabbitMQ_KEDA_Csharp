@@ -192,9 +192,9 @@ rabbitmq-consumer   0/0     0            0           86s
 
 
 # 8. Write RabbitMQ's messages to MongoDB
-I already uploaded a C# code on this repo. But, it is almost same as each step above. <br>
+I already uploaded a C# code on this repo. But, it is almost same as above to create it from scratch. <br>
 If you are not familier with MongoDB, the see also https://github.com/developer-onizuka/mvc_containers2. <br>
-C# is a very convenient object language to use MongoDB.
+C# is a very convenient object language to handle MongoDB.
 
 # 8-1. Deploy the Function of rabbitmq-to-mongodb to AzureFunctions on Onprem-Kubernetes
 ```
