@@ -17,7 +17,7 @@ namespace rabbitmq_to_mongodb
         public string LastName { get; set; }
     }
 
-    public class rabbitmq_consumer
+    public class rabbitmq_to_mongodb
     {
         private IMongoCollection<EmployeeEntity> collection;
         MongoClient client = new MongoClient("mongodb://mongo-svc:27017");
