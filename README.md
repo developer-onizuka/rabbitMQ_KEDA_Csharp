@@ -14,6 +14,9 @@ Azure Functions can run on Kubernetes with KEDA, so you can use Azure Functions 
 # 0-3. Create the private registry
 > https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA#1-run-the-registry-somewhere
 
+# 0-4. Create StorageClass for MongoDB's pvc
+> https://github.com/developer-onizuka/persistentVolume-CSI
+
 # 1. Install dotnet-sdk-6.0
 ```
 wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
