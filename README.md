@@ -227,7 +227,7 @@ mongo-test            1/1     1            1           42m
 rabbitmq-to-mongodb   0/0     0            0           7m5s
 ```
 
-# 8-2. Publish 2 Messages as test
+# 8-2. Publish some Messages as a test
 You might use the Json below:
 ```
 {"EmployeeID":1,"FirstName":"Yukichi","LastName":"Fukuzawa"}
