@@ -186,3 +186,30 @@ rabbitmq-consumer   0/0     0            0           86s
 ```
 
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ1.png" width="720">
+
+
+# 8. Write RabbitMQ's messages to MongoDB
+```
+$ git clone https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp
+
+$ cd rabbitMQ_KEDA_Csharp/rabbitmq-to-mongodb
+
+$ kubectl apply -f mongodb.yaml
+
+$ func kubernetes deploy --name rabbitmq-to-mongodb --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
+Running 'docker build -t 192.168.1.5:5000/rabbitmq-to-mongodb:latest /home/vagrant/rabbitMQ_KEDA_Csharp/rabbitmq-to-mongodb'..........................done
+secret/rabbitmq-to-mongodb created
+deployment.apps/rabbitmq-to-mongodb created
+scaledobject.keda.sh/rabbitmq-to-mongodb created
+
+$ kubectl get deploy
+NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
+mongo-test            1/1     1            1           42m
+rabbitmq-to-mongodb   0/0     0            0           7m5s
+
+
+
+```
+
+
+
