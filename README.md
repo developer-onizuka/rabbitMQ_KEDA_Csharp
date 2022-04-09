@@ -206,6 +206,7 @@ $ git clone https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp
 
 $ cd rabbitMQ_KEDA_Csharp/rabbitmq-to-mongodb
 ```
+- Prepare the MongoDB in the Kubernetes Cluster.
 ```
 $ kubectl apply -f mongodb.yaml
 
@@ -221,7 +222,7 @@ $ cat <<EOF > local.settings.json
 }
 EOF
 ```
-The case of mongoDB replica-set:<br>
+- The case of mongoDB replica-set:<br>
 See also https://github.com/developer-onizuka/mongoDB_replicaSet#1-create-replicaset-among-mongo-0-mongo-1-and-mongo-2-with-mongodb-opsmanager.
 ```
 $ cat <<EOF > local.settings.json
@@ -236,7 +237,7 @@ $ cat <<EOF > local.settings.json
 }
 EOF
 ```
-Let's begin deploying a function in the Kubernetes Cluster.
+- Let's begin deploying a function in the Kubernetes Cluster.
 ```
 $ func kubernetes deploy --name rabbitmq-to-mongodb --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
 Running 'docker build -t 192.168.1.5:5000/rabbitmq-to-mongodb:latest /home/vagrant/rabbitMQ_KEDA_Csharp/rabbitmq-to-mongodb'..........................done
@@ -250,7 +251,7 @@ mongo-test            1/1     1            1           42m
 rabbitmq-to-mongodb   0/0     0            0           7m5s
 ```
 
-For compiled languages, the function.json file is generated automatically from annotations in your code. It defines the function's trigger, bindings, and other configuration settings.
+- For compiled languages, the function.json file is generated automatically from annotations in your code. It defines the function's trigger, bindings, and other configuration settings.
 ```
 # cd /home/site/wwwroot/rabbitmq_to_mongodb
 # cat function.json 
