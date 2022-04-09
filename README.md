@@ -208,7 +208,7 @@ $ cat <<EOF > local.settings.json
     "Values": {
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-	"RabbitMQConnection": "amqp://user:PASSWORD@rabbitmq.default.svc.cluster.local:5672"
+        "RabbitMQConnection": "amqp://user:PASSWORD@rabbitmq.default.svc.cluster.local:5672"
     }
 }
 EOF
