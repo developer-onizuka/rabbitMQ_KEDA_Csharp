@@ -198,7 +198,7 @@ $ func kubernetes delete --name rabbitmq-consumer --registry 192.168.1.5:5000 --
 # 8. Write RabbitMQ's messages to MongoDB
 I already uploaded a C# code on this repo. But, it is almost same as above to create it from scratch. <br>
 If you are not familier with MongoDB, the see also https://github.com/developer-onizuka/mvc_containers2. <br>
-C# is a very convenient object language to handle MongoDB.
+C# is a very convenient object oriented language to handle MongoDB.
 
 # 8-1. Deploy the Function of rabbitmq-to-mongodb to AzureFunctions on Onprem-Kubernetes
 ```
