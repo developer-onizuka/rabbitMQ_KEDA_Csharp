@@ -236,6 +236,7 @@ $ cat <<EOF > local.settings.json
 }
 EOF
 ```
+Let's begin deploying a function in the Kubernetes Cluster.
 ```
 $ func kubernetes deploy --name rabbitmq-to-mongodb --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
 Running 'docker build -t 192.168.1.5:5000/rabbitmq-to-mongodb:latest /home/vagrant/rabbitMQ_KEDA_Csharp/rabbitmq-to-mongodb'..........................done
