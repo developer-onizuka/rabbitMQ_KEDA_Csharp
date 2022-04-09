@@ -20,13 +20,16 @@ namespace rabbitmq_to_mongodb
     public class rabbitmq_to_mongodb
     {
         private IMongoCollection<EmployeeEntity> collection;
-        MongoClient client = new MongoClient("mongodb://mongo-svc:27017");
 
         [FunctionName("rabbitmq_to_mongodb")]
         public void Run(
           [RabbitMQTrigger("employee-queue", ConnectionStringSetting = "RabbitMQConnection")] EmployeeEntity emp,
           ILogger log)
         {
+	    string connectionString = System.Environment.GetEnvironmentVariable("MongoDBConnection");
+            MongoClient client = new MongoClient(connectionString);
+            //MongoClient client = new MongoClient("mongodb://mongo-svc:27017");
+	    
             IMongoDatabase db = client.GetDatabase("mydb");
             collection = db.GetCollection<EmployeeEntity>("Employee");
             collection.InsertOne(emp); 
