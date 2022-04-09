@@ -207,6 +207,8 @@ $ git clone https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp
 $ cd rabbitMQ_KEDA_Csharp/rabbitmq-to-mongodb
 ```
 ```
+$ kubectl apply -f mongodb.yaml
+
 $ cat <<EOF > local.settings.json
 {
     "IsEncrypted": false,
@@ -234,8 +236,6 @@ $ cat <<EOF > local.settings.json
 EOF
 ```
 ```
-$ kubectl apply -f mongodb.yaml
-
 $ func kubernetes deploy --name rabbitmq-to-mongodb --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
 Running 'docker build -t 192.168.1.5:5000/rabbitmq-to-mongodb:latest /home/vagrant/rabbitMQ_KEDA_Csharp/rabbitmq-to-mongodb'..........................done
 secret/rabbitmq-to-mongodb created
