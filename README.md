@@ -319,18 +319,18 @@ $ dotnet run
  Press [enter] to exit.
 ```
 
-Confirm the count of record in MongoDB collection.
+# 10. Confirm the count of record in MongoDB collection.
 ```
 > db.Employee.find().count()
 100000
 ```
-# 9-1. kiali's view:
+# 10-1. kiali's view:
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ2.png" width="720"> <br>
 
-# 9-2. My Employee App's view:
+# 10-2. My Employee App's view:
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ3.png" width="320"> <br>
 
-# 9-3. MongoDB opsManager's view:
+# 10-3. MongoDB opsManager's view:
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ4.png" width="640"> <br>
 
 
