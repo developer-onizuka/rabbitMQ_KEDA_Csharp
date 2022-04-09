@@ -205,7 +205,8 @@ C# is a very convenient object language to handle MongoDB.
 $ git clone https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp
 
 $ cd rabbitMQ_KEDA_Csharp/rabbitmq-to-mongodb
-
+```
+```
 $ cat <<EOF > local.settings.json
 {
     "IsEncrypted": false,
@@ -217,7 +218,22 @@ $ cat <<EOF > local.settings.json
     }
 }
 EOF
-
+```
+The case of mongoDB replica-set:
+```
+$ cat <<EOF > local.settings.json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        "RabbitMQConnection": "amqp://user:PASSWORD@rabbitmq.default.svc.cluster.local:5672",
+        "MongoDBConnection": "mongodb://mongo-0:27017,mongo-1:27017,mongo-2:27017/?replicaSet=myReplicaSet"
+    }
+}
+EOF
+```
+```
 $ kubectl apply -f mongodb.yaml
 
 $ func kubernetes deploy --name rabbitmq-to-mongodb --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
