@@ -251,7 +251,8 @@ mongo-test            1/1     1            1           42m
 rabbitmq-to-mongodb   0/0     0            0           7m5s
 ```
 
-- For compiled languages (C# or Go etc), the function.json file is generated automatically from annotations in your code. It defines the function's trigger, bindings, and other configuration settings.
+- For compiled languages (C# or Go etc), the function.json file is generated automatically from annotations in your code. It defines the function's trigger, bindings, and other configuration settings.<br>
+> https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library?tabs=v2%2Ccmd#functions-class-library-project
 ```
 # cd /home/site/wwwroot/rabbitmq_to_mongodb
 # cat function.json 
