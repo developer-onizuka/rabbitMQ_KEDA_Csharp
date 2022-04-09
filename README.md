@@ -301,6 +301,7 @@ Confirm the count of record in MongoDB collection.
 # X. Clean up
 ```
 $ func kubernetes delete --name rabbitmq-to-mongodb --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
+$ helm uninstall rabbitmq
 ```
 
 
