@@ -301,8 +301,8 @@ Confirm the count of record in MongoDB collection.
 100000
 ```
 
-<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ2.png" width="640"> <br>
-<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ3.png" width="640"> <br>
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ2.png" width="720"> <br>
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ3.png" width="320"> <br>
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ4.png" width="640"> <br>
 
 
