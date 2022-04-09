@@ -248,6 +248,28 @@ mongo-test            1/1     1            1           42m
 rabbitmq-to-mongodb   0/0     0            0           7m5s
 ```
 
+For compiled languages, the function.json file is generated automatically from annotations in your code. It defines the function's trigger, bindings, and other configuration settings.
+```
+# cd /home/site/wwwroot/rabbitmq_to_mongodb
+# cat function.json 
+{
+  "generatedBy": "Microsoft.NET.Sdk.Functions.Generator-4.0.1",
+  "configurationSource": "attributes",
+  "bindings": [
+    {
+      "type": "rabbitMQTrigger",
+      "connectionStringSetting": "RabbitMQConnection",
+      "queueName": "employee-queue",
+      "name": "emp"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "../bin/rabbitmq-to-mongodb.dll",
+  "entryPoint": "rabbitmq_to_mongodb.rabbitmq_to_mongodb.Run"
+
+```
+
+
 # 8-2. Publish some Messages as a test
 You might use the Json below:
 ```
