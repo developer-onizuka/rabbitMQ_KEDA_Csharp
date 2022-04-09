@@ -278,12 +278,15 @@ Employee
 ```
 
 # 9. Publish messages
+There is a C# code which publish messages controlled with  environment below in the rabbitMQ_KEDA_Csharp/send-to-rabbitmq directory.<br>
+Use it if you like.
 ```
 export RABBITMQ_IPADDR="192.168.33.220"
 export RABBITMQ_QUEUE="employee-queue"
 export RABBITMQ_MESSAGECOUNT="100000"
 ```
 ```
+$ cd rabbitMQ_KEDA_Csharp/send-to-rabbitmq
 $ dotnet run
  [x] Sent {"EmployeeID":1,"FirstName":"xxxxx","LastName":"xxxxx"}
  ...
@@ -297,6 +300,11 @@ Confirm the count of record in MongoDB collection.
 > db.Employee.find().count()
 100000
 ```
+
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ2.png" width="640"> <br>
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ3.png" width="640"> <br>
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ4.png" width="640"> <br>
+
 
 # X. Clean up
 ```
