@@ -266,7 +266,6 @@ For compiled languages, the function.json file is generated automatically from a
   "disabled": false,
   "scriptFile": "../bin/rabbitmq-to-mongodb.dll",
   "entryPoint": "rabbitmq_to_mongodb.rabbitmq_to_mongodb.Run"
-
 ```
 
 
