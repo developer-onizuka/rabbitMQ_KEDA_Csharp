@@ -222,6 +222,7 @@ $ cat <<EOF > local.settings.json
 EOF
 ```
 The case of mongoDB replica-set:
+See also https://github.com/developer-onizuka/mongoDB_replicaSet#1-create-replicaset-among-mongo-0-mongo-1-and-mongo-2-with-mongodb-opsmanager.
 ```
 $ cat <<EOF > local.settings.json
 {
