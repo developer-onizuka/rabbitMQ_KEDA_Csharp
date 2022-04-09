@@ -31,7 +31,8 @@ class send_to_rabbitmq
                                  arguments: null);
 
 	    for(int i = 0; i < rabbitmq_messageCountInt; i++) {
-                string message = "{\"EmployeeID\":" + i + ",\"FirstName\":\"xxxxx\",\"LastName\":\"xxxxx\"}";
+		string random = Guid.NewGuid().ToString("N").Substring(0, 8);
+                string message = "{\"EmployeeID\":" + i + ",\"FirstName\":\"" + random + "\",\"LastName\":\"" + random + "\"}";
                 var body = Encoding.UTF8.GetBytes(message);
 
                 channel.BasicPublish(exchange: "",
