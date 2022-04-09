@@ -135,7 +135,7 @@ NAME                READY   UP-TO-DATE   AVAILABLE   AGE
 rabbitmq-consumer   0/0     0            0           44s
 ```
 
-# 6. Publish messages
+# 6. Publish a large number of messages
 https://github.com/developer-onizuka/rabbitMQ_KEDA#3-publish-messages-to-the-queue
 ```
 $ git clone https://github.com/kedacore/sample-go-rabbitmq
