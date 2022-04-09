@@ -262,7 +262,23 @@ Employee
 
 # 9. Publish messages
 ```
+export RABBITMQ_IPADDR="192.168.33.220"
+export RABBITMQ_QUEUE="employee-queue"
+export RABBITMQ_MESSAGECOUNT="100000"
+```
+```
+$ dotnet run
+ [x] Sent {"EmployeeID":1,"FirstName":"xxxxx","LastName":"xxxxx"}
+ ...
+ [x] Sent {"EmployeeID":99998,"FirstName":"xxxxx","LastName":"xxxxx"}
+ [x] Sent {"EmployeeID":99999,"FirstName":"xxxxx","LastName":"xxxxx"}
+ Press [enter] to exit.
+```
 
+Confirm the count of record in MongoDB collection.
+```
+> db.Employee.find().count()
+100000
 ```
 
 # X. Clean up
