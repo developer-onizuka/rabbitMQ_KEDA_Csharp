@@ -190,6 +190,10 @@ rabbitmq-consumer   0/0     0            0           86s
 
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ1.png" width="720">
 
+# 7-1. Clean up
+```
+$ func kubernetes delete --name rabbitmq-consumer --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
+```
 
 # 8. Write RabbitMQ's messages to MongoDB
 I already uploaded a C# code on this repo. But, it is almost same as above to create it from scratch. <br>
@@ -255,3 +259,15 @@ Employee
 { "_id" : ObjectId("62500698ec309b7f992ec51b"), "EmployeeID" : 1, "FirstName" : "Yukichi", "LastName" : "Fukuzawa" }
 { "_id" : ObjectId("6250096dcc145fdac5410531"), "EmployeeID" : 2, "FirstName" : "Shoin", "LastName" : "Yoshida" }
 ```
+
+# 9. Publish messages
+```
+
+```
+
+# X. Clean up
+```
+$ func kubernetes delete --name rabbitmq-to-mongodb --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
+```
+
+
