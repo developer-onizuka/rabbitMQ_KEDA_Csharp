@@ -277,7 +277,7 @@ Employee
 { "_id" : ObjectId("6250096dcc145fdac5410531"), "EmployeeID" : 2, "FirstName" : "Shoin", "LastName" : "Yoshida" }
 ```
 
-# 9. Publish messages
+# 9. Publish a large number of messages
 There is a C# code which publish messages controlled with  environment below in the rabbitMQ_KEDA_Csharp/send-to-rabbitmq directory.<br>
 Use it if you like.
 ```
