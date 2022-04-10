@@ -74,6 +74,7 @@ $ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
 ```
 $ vi local.settings.json 
 ```
+https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-local#local-settings-file
 ```
 {
     "IsEncrypted": false,
@@ -223,7 +224,8 @@ $ cat <<EOF > local.settings.json
 EOF
 ```
 - The case of mongoDB replica-set:<br>
-> https://github.com/developer-onizuka/mongoDB_replicaSet#1-create-replicaset-among-mongo-0-mongo-1-and-mongo-2-with-mongodb-opsmanager.
+> https://github.com/developer-onizuka/mongoDB_replicaSet#1-create-replicaset-among-mongo-0-mongo-1-and-mongo-2-with-mongodb-opsmanager.<br>
+> https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-local#local-settings-file
 ```
 $ cat <<EOF > local.settings.json
 {
