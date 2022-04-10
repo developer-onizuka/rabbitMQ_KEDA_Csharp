@@ -331,6 +331,7 @@ $ dotnet run
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ2.png" width="720"> <br>
 
 # 10-2. My Employee App's view:
+> https://github.com/developer-onizuka/mvc_containers2 <br>
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ3.png" width="320"> <br>
 
 # 10-3. MongoDB opsManager's view:
