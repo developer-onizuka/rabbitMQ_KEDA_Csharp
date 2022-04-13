@@ -5,17 +5,21 @@ Azure Functions can run on Kubernetes with KEDA, so you can use Azure Functions 
 # 0. Prerequisites
 # 0-1. Install KEDA with helm
 > https://github.com/developer-onizuka/rabbitMQ_KEDA#0-install-keda <br>
-> https://github.com/developer-onizuka/rabbitMQ_KEDA#1-install-rabbitmq-with-helm
 
-# 0-2. Install Azure-functions-core-tools
+# 0-2. Install RabbitMQ with helm
+> https://github.com/developer-onizuka/rabbitMQ_KEDA#1-install-rabbitmq-with-helm <br>
+
+# 0-3. Install Azure-functions-core-tools
 > https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA#1-run-the-registry-somewhere <br>
 > https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA#2-install-azure-functions-core-tools-in-kubernetes-master-node <br>
 
-# 0-3. Create the private registry
+# 0-4. Create the private registry
 > https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA#1-run-the-registry-somewhere <br>
 
-# 0-4. Create StorageClass for MongoDB's pvc
+# 0-5. Create StorageClass for MongoDB's pvc
 > https://github.com/developer-onizuka/persistentVolume-CSI <br>
+
+<br>
 
 # 1. Install dotnet-sdk-6.0
 ```
