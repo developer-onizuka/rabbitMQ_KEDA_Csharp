@@ -140,6 +140,12 @@ $ kubectl get deploy
 NAME                READY   UP-TO-DATE   AVAILABLE   AGE
 rabbitmq-consumer   0/0     0            0           44s
 ```
+You might see the following instead above.
+```
+$ kubectl get deploy
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+rabbitmq-consumer   1/1     1            1           44s
+```
 
 # 6. Publish a large number of messages
 https://github.com/developer-onizuka/rabbitMQ_KEDA#3-publish-messages-to-the-queue
