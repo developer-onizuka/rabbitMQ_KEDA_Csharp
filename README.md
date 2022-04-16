@@ -17,6 +17,7 @@ Azure Functions can run on Kubernetes with KEDA, so you can use Azure Functions 
 > https://github.com/developer-onizuka/AzureFunctionsOnKubernetesWithKEDA#1-run-the-registry-somewhere <br>
 
 # 0-5. Create StorageClass for MongoDB's pvc
+This step is needed to Write RabbitMQ's messages to MongoDB in #8.<br>
 > https://github.com/developer-onizuka/persistentVolume-CSI <br>
 
 <br>
