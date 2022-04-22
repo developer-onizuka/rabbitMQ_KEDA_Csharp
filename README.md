@@ -250,6 +250,22 @@ $ cat <<EOF > local.settings.json
 }
 EOF
 ```
+- The case of mongoDB in Onprem and Azure Cosmos DB API for MongoDB:<br>
+```
+$ cat <<EOF > local.settings.json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        "RabbitMQConnection": "amqp://user:PASSWORD@rabbitmq.default.svc.cluster.local:5672",
+        "MongoDBConnection": "mongodb://mongo-0:27017,mongo-1:27017,mongo-2:27017/?replicaSet=myReplicaSet",
+	"CosmosDBConnection": "mongodb://myfirstcosmosdb:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    }
+}
+EOF
+```
+
 - Let's begin deploying a function in the Kubernetes Cluster.
 ```
 $ func kubernetes deploy --name rabbitmq-to-mongodb --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
