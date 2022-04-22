@@ -260,7 +260,7 @@ $ cat <<EOF > local.settings.json
         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
         "RabbitMQConnection": "amqp://user:PASSWORD@rabbitmq.default.svc.cluster.local:5672",
         "MongoDBConnection": "mongodb://mongo-0:27017,mongo-1:27017,mongo-2:27017/?replicaSet=myReplicaSet",
-	"CosmosDBConnection": "mongodb://myfirstcosmosdb:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        "CosmosDBConnection": "mongodb://myfirstcosmosdb:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     }
 }
 EOF
