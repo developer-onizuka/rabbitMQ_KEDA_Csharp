@@ -24,10 +24,18 @@ namespace rabbitmq_to_hybridCloud
     {
         private IMongoCollection<EmployeeEntity> collection;
 
-        public void WriteMongoDB(string connection, EmployeeEntity entity)
+        public void WriteMongoDB(string connection_1st, string connection_2nd, EmployeeEntity entity)
         {
-            MongoClient client = new MongoClient(connection);
-            //MongoClient client = new MongoClient("mongodb://mongo-svc:27017");
+            MongoClient client;
+
+	    try
+	    {
+                client = new MongoClient(connection_1st);
+	    }
+	    catch (Exception e)
+	    {
+                client = new MongoClient(connection_2nd);
+	    }
 
             IMongoDatabase db = client.GetDatabase("mydb");
             collection = db.GetCollection<EmployeeEntity>("Employee");
@@ -41,20 +49,22 @@ namespace rabbitmq_to_hybridCloud
           [RabbitMQTrigger("employee-queue", ConnectionStringSetting = "RabbitMQConnection")] EmployeeEntity emp,
           ILogger log)
         {
-	    string connectionString;
+	    string connectionString_1st;
+	    string connectionString_2nd;
 
 	    if (emp.EmployeeID % 2 == 0)
 	    {
-	        connectionString = System.Environment.GetEnvironmentVariable("MongoDBConnection");
+	        connectionString_1st = System.Environment.GetEnvironmentVariable("MongoDBConnection");
+	        connectionString_2nd = System.Environment.GetEnvironmentVariable("CosmosDBConnection");
 	    }
 
 	    else
 	    {
-	        connectionString = System.Environment.GetEnvironmentVariable("CosmosDBConnection");
+	        connectionString_1st = System.Environment.GetEnvironmentVariable("CosmosDBConnection");
+	        connectionString_2nd = System.Environment.GetEnvironmentVariable("MongoDBConnection");
 	    }
 
-	    WriteMongoDB(connectionString, emp);
-
+	    WriteMongoDB(connectionString_1st, connectionString_2nd, emp);
 	}
     }
 }
