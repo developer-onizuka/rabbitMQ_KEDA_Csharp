@@ -1,0 +1,17 @@
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/obj/Debug/net6.0/send-to-rabbitmq.csproj.AssemblyReference.cache
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/obj/Debug/net6.0/send-to-rabbitmq.GeneratedMSBuildEditorConfig.editorconfig
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/obj/Debug/net6.0/send-to-rabbitmq.AssemblyInfoInputs.cache
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/obj/Debug/net6.0/send-to-rabbitmq.AssemblyInfo.cs
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/obj/Debug/net6.0/send-to-rabbitmq.csproj.CoreCompileInputs.cache
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/bin/Debug/net6.0/send-to-rabbitmq
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/bin/Debug/net6.0/send-to-rabbitmq.deps.json
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/bin/Debug/net6.0/send-to-rabbitmq.runtimeconfig.json
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/bin/Debug/net6.0/send-to-rabbitmq.dll
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/bin/Debug/net6.0/send-to-rabbitmq.pdb
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/bin/Debug/net6.0/RabbitMQ.Client.dll
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/obj/Debug/net6.0/send-to-rabbitmq.csproj.CopyComplete
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/obj/Debug/net6.0/send-to-rabbitmq.dll
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/obj/Debug/net6.0/refint/send-to-rabbitmq.dll
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/obj/Debug/net6.0/send-to-rabbitmq.pdb
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/obj/Debug/net6.0/send-to-rabbitmq.genruntimeconfig.cache
+/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmq/obj/Debug/net6.0/ref/send-to-rabbitmq.dll

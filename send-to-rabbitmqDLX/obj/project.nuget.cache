@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "p/LGMAByUY3IvI3xaIFJKQzEf4KkFZGbKXVuMBUIYC4xEcaagQsKwmqC2dRX3IVn1gt3r995ySqUo3whsUuXeA==",
+  "success": true,
+  "projectFilePath": "/home/vagrant/rabbitMQ_KEDA_Csharp/send-to-rabbitmqDLX/send-to-rabbitmqDLX.csproj",
+  "expectedPackageFiles": [
+    "/root/.nuget/packages/rabbitmq.client/6.2.4/rabbitmq.client.6.2.4.nupkg.sha512",
+    "/root/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
+    "/root/.nuget/packages/system.threading.channels/4.7.1/system.threading.channels.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}
