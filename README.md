@@ -349,6 +349,14 @@ $ dotnet run
  Press [enter] to exit.
 ```
 
+# 9-1. Publish a large number of messages via DLX
+```
+export RABBITMQ_IPADDR="192.168.33.220"
+export RABBITMQ_DLX="dlx.employee-queue"
+export RABBITMQ_MESSAGECOUNT="100000"
+```
+
+
 # 10. Confirm the count of record in MongoDB collection.
 ```
 > db.Employee.find().count()
