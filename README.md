@@ -363,10 +363,12 @@ Confirm the count of record in MongoDB collection.
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx2.png" width="640"> <br>
 
 # 9-3. Create DLXs and Bind it for each queue
+# Employee-queue
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx3.png" width="640"> <br>
-<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx4.png" width="640"> <br>
-
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx5.png" width="640"> <br>
+
+# Employee-queue-failure
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx4.png" width="640"> <br>
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx6.png" width="640"> <br>
 
 # 9-4. Publish a large number of messages via DLX
