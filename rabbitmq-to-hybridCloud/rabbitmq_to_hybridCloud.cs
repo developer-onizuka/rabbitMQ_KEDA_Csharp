@@ -23,25 +23,29 @@ namespace rabbitmq_to_hybridCloud
     public class rabbitmq_to_hybridCloud
     {
         private IMongoCollection<EmployeeEntity> collection;
+        private MongoClient client;
 
-        public void WriteMongoDB(string connection_1st, string connection_2nd, EmployeeEntity entity)
-        {
-            MongoClient client;
-
-	    try
-	    {
-                client = new MongoClient(connection_1st);
-	    }
-	    catch (Exception e)
-	    {
-                client = new MongoClient(connection_2nd);
-	    }
-
+	public void InsertEntity(EmployeeEntity entity)
+	{
             IMongoDatabase db = client.GetDatabase("mydb");
             collection = db.GetCollection<EmployeeEntity>("Employee");
             collection.InsertOne(entity); 
             // {"EmployeeID":1,"FirstName":"Yukichi","LastName":"Fukuzawa"}
             // {"EmployeeID":2,"FirstName":"Shoin","LastName":"Yoshida"}
+	}
+
+        public void WriteMongoDB(string primary, string secondary, EmployeeEntity entity)
+        {
+	    try
+	    {
+                client = new MongoClient(primary);
+		InsertEntity(entity);
+	    }
+	    catch (Exception e)
+	    {
+                client = new MongoClient(secondary);
+		InsertEntity(entity);
+	    }
         }
 
         [FunctionName("rabbitmq_to_hybridCloud")]
@@ -49,22 +53,22 @@ namespace rabbitmq_to_hybridCloud
           [RabbitMQTrigger("employee-queue", ConnectionStringSetting = "RabbitMQConnection")] EmployeeEntity emp,
           ILogger log)
         {
-	    string connectionString_1st;
-	    string connectionString_2nd;
+	    string connMongoDB;
+	    string connCosmosDB;
 
 	    if (emp.EmployeeID % 2 == 0)
 	    {
-	        connectionString_1st = System.Environment.GetEnvironmentVariable("MongoDBConnection");
-	        connectionString_2nd = System.Environment.GetEnvironmentVariable("CosmosDBConnection");
+	        connMongoDB = System.Environment.GetEnvironmentVariable("PrimaryConnection");
+	        connCosmosDB = System.Environment.GetEnvironmentVariable("SecondaryConnection");
 	    }
 
 	    else
 	    {
-	        connectionString_1st = System.Environment.GetEnvironmentVariable("CosmosDBConnection");
-	        connectionString_2nd = System.Environment.GetEnvironmentVariable("MongoDBConnection");
+	        connCosmosDB = System.Environment.GetEnvironmentVariable("PrimaryConnection");
+	        connMongoDB = System.Environment.GetEnvironmentVariable("SecondaryConnection");
 	    }
 
-	    WriteMongoDB(connectionString_1st, connectionString_2nd, emp);
+	    WriteMongoDB(connMongoDB, connCosmosDB, emp);
 	}
     }
 }
