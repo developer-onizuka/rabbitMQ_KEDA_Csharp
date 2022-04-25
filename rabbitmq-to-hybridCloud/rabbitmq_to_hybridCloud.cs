@@ -10,16 +10,6 @@ using MongoDB.Driver;
 
 namespace rabbitmq_to_hybridCloud
 {
-    public class EmployeeEntity
-    {
-	[BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
-        public int EmployeeID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-    }
-
     public class rabbitmq_to_hybridCloud
     {
         private IMongoCollection<EmployeeEntity> collection;
@@ -39,12 +29,19 @@ namespace rabbitmq_to_hybridCloud
 	    try
 	    {
                 client = new MongoClient(primary);
-		InsertEntity(entity);
+ 	        InsertEntity(entity);
 	    }
 	    catch (Exception e)
 	    {
-                client = new MongoClient(secondary);
-		InsertEntity(entity);
+		//If you would like to write messages to Secondary DB, remove comments of 2 lines below:
+                //client = new MongoClient(secondary);
+		//InsertEntity(entity);
+
+		//The logic to leave messages on dead letter queue thru DLX, instead of DB write.
+		RabbitmqDLX dl = new RabbitmqDLX();
+		dl.rabbitmq_ipaddr = System.Environment.GetEnvironmentVariable("RabbitMQ_IPaddress");
+                dl.rabbitmq_dlx = System.Environment.GetEnvironmentVariable("RabbitMQ_DLX");
+		dl.SendMessages(entity);
 	    }
         }
 
