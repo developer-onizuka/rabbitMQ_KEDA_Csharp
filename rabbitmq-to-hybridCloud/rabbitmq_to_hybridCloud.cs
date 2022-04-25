@@ -53,22 +53,22 @@ namespace rabbitmq_to_hybridCloud
           [RabbitMQTrigger("employee-queue", ConnectionStringSetting = "RabbitMQConnection")] EmployeeEntity emp,
           ILogger log)
         {
-	    string connMongoDB;
-	    string connCosmosDB;
+	    string primaryConnection;
+	    string secondaryConnection;
 
 	    if (emp.EmployeeID % 2 == 0)
 	    {
-	        connMongoDB = System.Environment.GetEnvironmentVariable("PrimaryConnection");
-	        connCosmosDB = System.Environment.GetEnvironmentVariable("SecondaryConnection");
+	        primaryConnection = System.Environment.GetEnvironmentVariable("PrimaryConnection");
+	        secondaryConnection = System.Environment.GetEnvironmentVariable("SecondaryConnection");
 	    }
 
 	    else
 	    {
-	        connCosmosDB = System.Environment.GetEnvironmentVariable("PrimaryConnection");
-	        connMongoDB = System.Environment.GetEnvironmentVariable("SecondaryConnection");
+	        secondaryConnection = System.Environment.GetEnvironmentVariable("PrimaryConnection");
+	        primaryConnection = System.Environment.GetEnvironmentVariable("SecondaryConnection");
 	    }
 
-	    WriteMongoDB(connMongoDB, connCosmosDB, emp);
+	    WriteMongoDB(primaryConnection, secondaryConnection, emp);
 	}
     }
 }
