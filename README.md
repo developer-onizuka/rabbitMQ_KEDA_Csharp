@@ -331,7 +331,8 @@ Employee
 { "_id" : ObjectId("6250096dcc145fdac5410531"), "EmployeeID" : 2, "FirstName" : "Shoin", "LastName" : "Yoshida" }
 ```
 
-# 9. Publish a large number of messages
+# 9.
+# 9-1. Publish a large number of messages
 There is a C# code which publish messages controlled with  environment below in the rabbitMQ_KEDA_Csharp/send-to-rabbitmq directory.<br>
 Use it if you like.
 ```
@@ -349,27 +350,52 @@ $ dotnet run
  Press [enter] to exit.
 ```
 
-# 9-1. Publish a large number of messages via DLX
-```
-export RABBITMQ_IPADDR="192.168.33.220"
-export RABBITMQ_DLX="dlx.employee-queue"
-export RABBITMQ_MESSAGECOUNT="100000"
-```
-
-
-# 10. Confirm the count of record in MongoDB collection.
+# 9-2. Confirm the count of record in MongoDB collection.
 ```
 > db.Employee.find().count()
 100000
 ```
-# 10-1. kiali's view:
+
+# 10.
+# 10-1. Publish a large number of messages via DLX
+```
+export RABBITMQ_IPADDR="192.168.33.220"
+export RABBITMQ_DLX="dlx.employee-queue"
+export RABBITMQ_MESSAGECOUNT="100000"
+cd send-to-rabbitmqDLX
+dotnet run
+```
+
+# 10-2. Consume them thru the DLX aware App
+```
+$ cat <<EOF > local.settings.json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        "RabbitMQConnection": "amqp://user:PASSWORD@rabbitmq.default.svc.cluster.local:5672",
+	"RabbitMQ_IPaddress": "rabbitmq",
+	"RabbitMQ_DLX": "dlx.employee-queue-failure",
+        "PrimaryConnection": "mongodb://mongo-0:27017,mongo-1:27017,mongo-2:27017/?replicaSet=myReplicaSet",
+        "SecondaryConnection": "mongodb://myfirstcosmosdb:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    }
+}
+```
+```
+$ func kubernetes delete --name rabbitmq-to-hybridcloud --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
+```
+
+
+# 11.
+# 11-1. kiali's view:
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ2.png" width="720"> <br>
 
-# 10-2. My Employee App's view:
+# 11-2. My Employee App's view:
 > https://github.com/developer-onizuka/mvc_containers2 <br>
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ3.png" width="320"> <br>
 
-# 10-3. MongoDB opsManager's view:
+# 11-3. MongoDB opsManager's view:
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ4.png" width="640"> <br>
 
 
