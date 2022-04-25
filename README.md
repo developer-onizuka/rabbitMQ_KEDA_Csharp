@@ -331,7 +331,7 @@ Employee
 { "_id" : ObjectId("6250096dcc145fdac5410531"), "EmployeeID" : 2, "FirstName" : "Shoin", "LastName" : "Yoshida" }
 ```
 
-# 9. Publish a large number of messages
+# 8-4. Publish a large number of messages
 There is a C# code which publish messages controlled with  environment below in the rabbitMQ_KEDA_Csharp/send-to-rabbitmq directory.<br>
 Use it if you like.
 ```
@@ -355,8 +355,8 @@ Confirm the count of record in MongoDB collection.
 100000
 ```
 
-# 10. Store messages as dead letters if it fails
-# 10-1. Publish a large number of messages via DLX
+# 9. Store messages as dead letters if it fails
+# 9-1. Publish a large number of messages via DLX
 ```
 export RABBITMQ_IPADDR="192.168.33.220"
 export RABBITMQ_DLX="dlx.employee-queue"
@@ -367,7 +367,7 @@ $ cd rabbitMQ_KEDA_Csharp/send-to-rabbitmqDLX
 $ dotnet run
 ```
 
-# 10-2. Consume them thru the DLX aware App
+# 9-2. Consume them thru the DLX aware App
 If the App fails by some reasons, the messages will be left on the dead letter queue.
 ```
 $ cat <<EOF > local.settings.json
@@ -389,15 +389,15 @@ $ func kubernetes delete --name rabbitmq-to-hybridcloud --registry 192.168.1.5:5
 ```
 
 
-# 11.
-# 11-1. kiali's view:
+# 10. Views
+# 10-1. kiali's view:
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ2.png" width="720"> <br>
 
-# 11-2. My Employee App's view:
+# 10-2. My Employee App's view:
 > https://github.com/developer-onizuka/mvc_containers2 <br>
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ3.png" width="320"> <br>
 
-# 11-3. MongoDB opsManager's view:
+# 10-3. MongoDB opsManager's view:
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ4.png" width="640"> <br>
 
 
