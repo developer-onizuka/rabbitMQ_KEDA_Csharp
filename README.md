@@ -331,8 +331,7 @@ Employee
 { "_id" : ObjectId("6250096dcc145fdac5410531"), "EmployeeID" : 2, "FirstName" : "Shoin", "LastName" : "Yoshida" }
 ```
 
-# 9.
-# 9-1. Publish a large number of messages
+# 9. Publish a large number of messages
 There is a C# code which publish messages controlled with  environment below in the rabbitMQ_KEDA_Csharp/send-to-rabbitmq directory.<br>
 Use it if you like.
 ```
@@ -350,13 +349,13 @@ $ dotnet run
  Press [enter] to exit.
 ```
 
-# 9-2. Confirm the count of record in MongoDB collection.
+Confirm the count of record in MongoDB collection.
 ```
 > db.Employee.find().count()
 100000
 ```
 
-# 10.
+# 10. Store messages as dead letters if it fails
 # 10-1. Publish a large number of messages via DLX
 ```
 export RABBITMQ_IPADDR="192.168.33.220"
