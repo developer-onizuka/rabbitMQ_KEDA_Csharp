@@ -362,11 +362,14 @@ $ dotnet run
 export RABBITMQ_IPADDR="192.168.33.220"
 export RABBITMQ_DLX="dlx.employee-queue"
 export RABBITMQ_MESSAGECOUNT="100000"
-cd send-to-rabbitmqDLX
-dotnet run
+```
+```
+$ cd rabbitMQ_KEDA_Csharp/send-to-rabbitmqDLX
+$ dotnet run
 ```
 
 # 10-2. Consume them thru the DLX aware App
+If the App fails by some reasons, the messages will be left on the dead letter queue.
 ```
 $ cat <<EOF > local.settings.json
 {
