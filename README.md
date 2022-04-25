@@ -356,7 +356,20 @@ Confirm the count of record in MongoDB collection.
 ```
 
 # 9. Store messages as dead letters if it fails
-# 9-1. Publish a large number of messages via DLX
+# 9-1. Create Queue with message-TTL
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx1.png" width="640"> <br>
+
+# 9-2. Create Failure-Queue
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx2.png" width="640"> <br>
+
+# 9-3. Create DLXs and Bind it for each queue
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx3.png" width="640"> <br>
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx4.png" width="640"> <br>
+
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx5.png" width="640"> <br>
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx6.png" width="640"> <br>
+
+# 9-4. Publish a large number of messages via DLX
 ```
 export RABBITMQ_IPADDR="192.168.33.220"
 export RABBITMQ_DLX="dlx.employee-queue"
@@ -367,7 +380,7 @@ $ cd rabbitMQ_KEDA_Csharp/send-to-rabbitmqDLX
 $ dotnet run
 ```
 
-# 9-2. Consume them thru the DLX aware App
+# 9-5. Consume them thru the DLX aware App
 If the App fails by some reasons, the messages will be left on the dead letter queue.
 ```
 $ cat <<EOF > local.settings.json
