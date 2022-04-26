@@ -404,6 +404,7 @@ $ cat <<EOF > local.settings.json
 $ func kubernetes delete --name rabbitmq-to-hybridcloud --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
 ```
 
+# 9-6. Result
 You can find 10000 of 20000 messages are stored in Failure Queue because of SecondaryConnection in local.settings.json is not existing.<br>
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ5.png" width="640"> <br>
 
