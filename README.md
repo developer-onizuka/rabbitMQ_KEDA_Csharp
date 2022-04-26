@@ -385,6 +385,7 @@ $ dotnet run
 # 9-5. Consume them thru the DLX aware App
 If the App fails by some reasons, the messages will be left on the dead letter queue.
 ```
+$ cd rabbitMQ_KEDA_Csharp/rabbitmq-to-hybridCloud
 $ cat <<EOF > local.settings.json
 {
     "IsEncrypted": false,
