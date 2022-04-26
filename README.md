@@ -357,25 +357,25 @@ Confirm the count of record in MongoDB collection.
 
 # 9. Store messages as dead letters if it fails
 # 9-1. Create Queue with message-TTL
-<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx1.png" width="640"> <br>
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx1.png" width="480"> <br>
 
 # 9-2. Create Failure-Queue
-<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx2.png" width="640"> <br>
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx2.png" width="480"> <br>
 
 # 9-3. Create DLXs and Bind it for each queue
 # Employee-queue
-<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx3.png" width="640"> <br>
-<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx5.png" width="640"> <br>
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx3.png" width="480"> <br>
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx5.png" width="480"> <br>
 
 # Employee-queue-failure
-<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx4.png" width="640"> <br>
-<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx6.png" width="640"> <br>
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx4.png" width="480"> <br>
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ-dlx6.png" width="480"> <br>
 
 # 9-4. Publish a large number of messages via DLX
 ```
 export RABBITMQ_IPADDR="192.168.33.220"
 export RABBITMQ_DLX="dlx.employee-queue"
-export RABBITMQ_MESSAGECOUNT="100000"
+export RABBITMQ_MESSAGECOUNT="20000"
 ```
 ```
 $ cd rabbitMQ_KEDA_Csharp/send-to-rabbitmqDLX
@@ -403,6 +403,10 @@ $ cat <<EOF > local.settings.json
 ```
 $ func kubernetes delete --name rabbitmq-to-hybridcloud --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
 ```
+
+You can find 10000 of 20000 messages are stored in Failure Queue because of SecondaryConnection in local.settings.json is not existing.<br>
+<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ5.png" width="640"> <br>
+
 
 
 # 10. Views
