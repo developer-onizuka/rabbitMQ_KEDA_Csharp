@@ -408,19 +408,6 @@ You can find 10000 of 20000 messages are stored in Failure Queue because of Seco
 <img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ5.png" width="640"> <br>
 
 
-
-# 10. Views
-# 10-1. kiali's view:
-<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ2.png" width="720"> <br>
-
-# 10-2. My Employee App's view:
-> https://github.com/developer-onizuka/mvc_containers2 <br>
-<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ3.png" width="320"> <br>
-
-# 10-3. MongoDB opsManager's view:
-<img src="https://github.com/developer-onizuka/rabbitMQ_KEDA_Csharp/blob/main/rabbitMQ4.png" width="640"> <br>
-
-
 # X. Clean up
 ```
 $ func kubernetes delete --name rabbitmq-to-mongodb --registry 192.168.1.5:5000 --max-replicas 16 --polling-interval 5 --cooldown-period 30
