@@ -393,8 +393,8 @@ $ cat <<EOF > local.settings.json
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
         "RabbitMQConnection": "amqp://user:PASSWORD@rabbitmq.default.svc.cluster.local:5672",
-	"RabbitMQ_IPaddress": "rabbitmq",
-	"RabbitMQ_DLX": "dlx.employee-queue-failure",
+        "RabbitMQ_IPaddress": "rabbitmq",
+        "RabbitMQ_DLX": "dlx.employee-queue-failure",
         "PrimaryConnection": "mongodb://mongo-0:27017,mongo-1:27017,mongo-2:27017/?replicaSet=myReplicaSet",
         "SecondaryConnection": "mongodb://myfirstcosmosdb:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     }
