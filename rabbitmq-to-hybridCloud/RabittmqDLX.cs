@@ -20,9 +20,9 @@ public class RabbitmqDLX
         using(var connection = factory.CreateConnection())
         using(var channel = connection.CreateModel())
         {
-	    string message = JsonConvert.SerializeObject(entity);
+	    string json = JsonConvert.SerializeObject(entity);
 
-            var body = Encoding.UTF8.GetBytes(message);
+            var body = Encoding.UTF8.GetBytes(json);
 
             channel.BasicPublish(exchange: this.rabbitmq_dlx,
                                  routingKey: "",
